@@ -818,7 +818,7 @@ public class GUI_Main extends javax.swing.JFrame {
                         jblV8.setIcon(new ImageIcon(img8));
                     } catch (Exception e) {
                     }
-                break;
+                break;   
             case "Ciencia Ficción":
                 try {
                         URL url = this.getClass().getResource(ciencia[0]);
