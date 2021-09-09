@@ -731,6 +731,7 @@ public class GUI_Main extends javax.swing.JFrame {
                     } catch (Exception e) {
                     }
                 break;
+                //Llenamos nuestro arreglo que creamos
             case "Terror":
                 try {
                         URL url = this.getClass().getResource(terror[0]);
