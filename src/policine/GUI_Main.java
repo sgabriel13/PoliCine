@@ -3,8 +3,10 @@ package policine;
 import java.awt.Image;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -12,7 +14,11 @@ import javax.swing.ImageIcon;
  */
 public class GUI_Main extends javax.swing.JFrame {
 
-    int contador=1;
+    
+    public static int unidadesProducto=0;
+    public static String tipoSnack="";
+    public static double precioSnack=0.0;
+    public static double totalAPagar=0.0;
     
     /**
      * Creates new form GUI_Main
@@ -26,23 +32,41 @@ public class GUI_Main extends javax.swing.JFrame {
     String ciencia[] = {"/imagenes/c1.jpg", "/imagenes/c2.jpg", "/imagenes/c3.jpg", "/imagenes/c4.jpg", "/imagenes/c5.jpg", "/imagenes/c6.jpg","/imagenes/c7.jpg","/imagenes/c8.jpg"};
     String musical[] = {"/imagenes/m1.jpeg", "/imagenes/m2.jpg", "/imagenes/m3.jpg", "/imagenes/m4.jpg", "/imagenes/m5.jpg", "/imagenes/m6.jpg","/imagenes/m7.jpg","/imagenes/m8.jpg"};
     String infantil[] = {"/imagenes/i1.jpg", "/imagenes/i2.png", "/imagenes/i3.jpg", "/imagenes/i4.jpg", "/imagenes/i5.jpg", "/imagenes/i6.jpg","/imagenes/i7.jpg","/imagenes/i8.jpg"};
-
+    String productosTienda[] = {"/imagenes/canguil.jpg","/imagenes/nachos.jpg","/imagenes/papas.png","/imagenes/bebida.jpg","/imagenes/Pollo.jpg","/imagenes/hotdog.jpg","/imagenes/chocolate.jpg","/imagenes/burguer.jpg"};
+    
+    
     public GUI_Main() {
         initComponents();
         setLocationRelativeTo(null);
+        jtbTienda.setEnabledAt(1, false);
+        setTitle("Cartelera");
+        jblV1.setVisible(false);
+        jblV2.setVisible(false);
+        jblV3.setVisible(false);
+        jblV4.setVisible(false);
+        jblV5.setVisible(false);
+        jblV6.setVisible(false);
+        jblV7.setVisible(false);
+        jblV8.setVisible(false);
     }
     
-    public int aumentar(){
-        return contador++;
+    public void limpiarGUI(){
+        txtCantidad.setText("");
+        cmbTienda.setSelectedIndex(0);
+        jblProductos.setIcon(null);
     }
-    
-    public int disminuir(){
-        
-        if (contador<=0){
-            return contador=0;
-        }
-        return contador--;
+ 
+    public void habilitarImagenes(){
+        jblV1.setVisible(true);
+        jblV2.setVisible(true);
+        jblV3.setVisible(true);
+        jblV4.setVisible(true);
+        jblV5.setVisible(true);
+        jblV6.setVisible(true);
+        jblV7.setVisible(true);
+        jblV8.setVisible(true);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,10 +76,10 @@ public class GUI_Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jtbTienda = new javax.swing.JTabbedPane();
+        jblInicio = new javax.swing.JPanel();
+        jblGenero = new javax.swing.JLabel();
+        cmbGenero = new javax.swing.JComboBox<>();
         jblV2 = new javax.swing.JLabel();
         jblV3 = new javax.swing.JLabel();
         jblV5 = new javax.swing.JLabel();
@@ -64,931 +88,636 @@ public class GUI_Main extends javax.swing.JFrame {
         jblV7 = new javax.swing.JLabel();
         jblV4 = new javax.swing.JLabel();
         jblV8 = new javax.swing.JLabel();
-        jblHotDog = new javax.swing.JPanel();
-        PoliSnacks = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jblPapas = new javax.swing.JLabel();
-        jblCanguil = new javax.swing.JLabel();
-        jblNachos = new javax.swing.JLabel();
-        jblHotDoh = new javax.swing.JLabel();
-        jblKFC = new javax.swing.JLabel();
-        jblBebidas = new javax.swing.JLabel();
-        jblDulces = new javax.swing.JLabel();
-        jblPoliburguer = new javax.swing.JLabel();
-        btnDisminuirCanguil = new javax.swing.JButton();
-        btnDisminuirNachos = new javax.swing.JButton();
-        btnDisminuirPapas = new javax.swing.JButton();
-        btnDisminuirHotDog = new javax.swing.JButton();
-        btnDisminuirKFC = new javax.swing.JButton();
-        btnDisminuirBebida = new javax.swing.JButton();
-        btnDisminuirDulces = new javax.swing.JButton();
-        btnDisminuirBurguer = new javax.swing.JButton();
-        btnAumentarCanguil = new javax.swing.JButton();
-        btnAumentarNachos = new javax.swing.JButton();
-        btnAumentarPapas = new javax.swing.JButton();
-        btnAumentarHot = new javax.swing.JButton();
-        btnAumentarKFC = new javax.swing.JButton();
-        btnAumentarBebida = new javax.swing.JButton();
-        btnAumentarDulce = new javax.swing.JButton();
-        btnAumentarBurguer = new javax.swing.JButton();
+        jblTienda = new javax.swing.JPanel();
+        jblPoliSnacks = new javax.swing.JLabel();
+        btnIngresar = new javax.swing.JButton();
+        jblProductos = new javax.swing.JLabel();
+        cmbTienda = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txaPrecio = new javax.swing.JTextArea();
+        jblCantidad = new javax.swing.JLabel();
+        txtCantidad = new javax.swing.JTextField();
+        btnGuardar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jtbTienda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Genero:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 31, 80, 27));
+        jblInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Acción", "Drama", "Terror", "Suspenso", "Aventura", "Ciencia Ficción", "Musical", "Infantil" }));
-        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+        jblGenero.setFont(new java.awt.Font("Elephant", 0, 18)); // NOI18N
+        jblGenero.setText("Género:");
+        jblInicio.add(jblGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 31, 80, 27));
+
+        cmbGenero.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---------- Elija una opción ----------", "Acción", "Drama", "Terror", "Suspenso", "Aventura", "Ciencia Ficción", "Musical", "Infantil" }));
+        cmbGenero.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBox1ItemStateChanged(evt);
+                cmbGeneroItemStateChanged(evt);
             }
         });
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 37, 229, -1));
+        jblInicio.add(cmbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 229, -1));
 
-        jblV2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/c1.jpg"))); // NOI18N
-        jPanel1.add(jblV2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, 143));
+        jblV2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jblV2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jblV2MouseClicked(evt);
+            }
+        });
+        jblInicio.add(jblV2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 100, 143));
 
-        jblV3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/d1.jpg"))); // NOI18N
-        jPanel1.add(jblV3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 105, 143));
+        jblV3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jblV3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jblV3MouseClicked(evt);
+            }
+        });
+        jblInicio.add(jblV3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 105, 143));
 
-        jblV5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/p1.jpg"))); // NOI18N
-        jPanel1.add(jblV5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, 150));
+        jblV5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jblV5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jblV5MouseClicked(evt);
+            }
+        });
+        jblInicio.add(jblV5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 100, 150));
 
-        jblV1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/a1.jpg"))); // NOI18N
-        jPanel1.add(jblV1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, 143));
+        jblV1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jblV1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jblV1MouseClicked(evt);
+            }
+        });
+        jblInicio.add(jblV1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 100, 143));
 
-        jblV6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/s1.jpg"))); // NOI18N
-        jPanel1.add(jblV6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, 150));
+        jblV6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jblV6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jblV6MouseClicked(evt);
+            }
+        });
+        jblInicio.add(jblV6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 100, 150));
 
-        jblV7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/t1.jpg"))); // NOI18N
-        jPanel1.add(jblV7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 100, 150));
+        jblV7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jblV7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jblV7MouseClicked(evt);
+            }
+        });
+        jblInicio.add(jblV7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 100, 150));
 
-        jblV4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/i1.jpg"))); // NOI18N
-        jPanel1.add(jblV4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, 100, 140));
+        jblV4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jblV4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jblV4MouseClicked(evt);
+            }
+        });
+        jblInicio.add(jblV4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, 100, 140));
 
-        jblV8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/m2.jpg"))); // NOI18N
-        jPanel1.add(jblV8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 100, 150));
+        jblV8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jblV8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jblV8MouseClicked(evt);
+            }
+        });
+        jblInicio.add(jblV8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 240, 100, 150));
 
-        jTabbedPane1.addTab("Inicio", jPanel1);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/peliculas.jpg"))); // NOI18N
+        jblInicio.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 440));
 
-        PoliSnacks.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        PoliSnacks.setText("PoliSnacks");
+        jtbTienda.addTab("Inicio", jblInicio);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/poliburguer.jpg"))); // NOI18N
+        jblTienda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/polihotdog.jpg"))); // NOI18N
+        jblPoliSnacks.setFont(new java.awt.Font("Elephant", 0, 24)); // NOI18N
+        jblPoliSnacks.setText("PoliSnacks");
+        jblTienda.add(jblPoliSnacks, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/polinachos.jpg"))); // NOI18N
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/polipapas.jpg"))); // NOI18N
-
-        jLabel6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 11)); // NOI18N
-        jLabel6.setText("PoliCanguil");
-
-        jLabel7.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 11)); // NOI18N
-        jLabel7.setText("PoliNachos");
-
-        jLabel8.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 11)); // NOI18N
-        jLabel8.setText("PoliPapas");
-
-        jLabel9.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 11)); // NOI18N
-        jLabel9.setText("PoliHotdog");
-
-        jLabel10.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 11)); // NOI18N
-        jLabel10.setText("$3.35");
-
-        jLabel11.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 11)); // NOI18N
-        jLabel11.setText("$4.00");
-
-        jLabel12.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 11)); // NOI18N
-        jLabel12.setText("$2.50");
-
-        jLabel13.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 11)); // NOI18N
-        jLabel13.setText("$4.00");
-
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/policanguil.jpg"))); // NOI18N
-
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/policola.jpg"))); // NOI18N
-
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/polichocolate.jpg"))); // NOI18N
-
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/polikfc.jpg"))); // NOI18N
-
-        jLabel18.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 11)); // NOI18N
-        jLabel18.setText("PoliKFC");
-
-        jLabel19.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 11)); // NOI18N
-        jLabel19.setText("PoliBebidas");
-
-        jLabel20.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 11)); // NOI18N
-        jLabel20.setText("PoliDulces");
-
-        jLabel21.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 11)); // NOI18N
-        jLabel21.setText("Poliburguer");
-
-        jLabel22.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 11)); // NOI18N
-        jLabel22.setText("$5.00");
-
-        jLabel23.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 11)); // NOI18N
-        jLabel23.setText("$3.00");
-
-        jLabel24.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 11)); // NOI18N
-        jLabel24.setText("$2.00");
-
-        jLabel25.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 11)); // NOI18N
-        jLabel25.setText("$4.50");
-
-        jblPapas.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jblPapas.setForeground(new java.awt.Color(0, 153, 255));
-        jblPapas.setText("0");
-
-        jblCanguil.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jblCanguil.setForeground(new java.awt.Color(0, 153, 255));
-        jblCanguil.setText("0");
-
-        jblNachos.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jblNachos.setForeground(new java.awt.Color(0, 153, 255));
-        jblNachos.setText("0");
-
-        jblHotDoh.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jblHotDoh.setForeground(new java.awt.Color(0, 153, 255));
-        jblHotDoh.setText("0");
-
-        jblKFC.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jblKFC.setForeground(new java.awt.Color(0, 153, 255));
-        jblKFC.setText("0");
-
-        jblBebidas.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jblBebidas.setForeground(new java.awt.Color(0, 153, 255));
-        jblBebidas.setText("0");
-
-        jblDulces.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jblDulces.setForeground(new java.awt.Color(0, 153, 255));
-        jblDulces.setText("0");
-
-        jblPoliburguer.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jblPoliburguer.setForeground(new java.awt.Color(0, 153, 255));
-        jblPoliburguer.setText("0");
-
-        btnDisminuirCanguil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disminuir.png"))); // NOI18N
-        btnDisminuirCanguil.setBorderPainted(false);
-        btnDisminuirCanguil.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnDisminuirCanguil.setDisabledSelectedIcon(null);
-        btnDisminuirCanguil.addActionListener(new java.awt.event.ActionListener() {
+        btnIngresar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnIngresar.setText("Ir Datos Cliente");
+        btnIngresar.setActionCommand("");
+        btnIngresar.setEnabled(false);
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDisminuirCanguilActionPerformed(evt);
+                btnIngresarActionPerformed(evt);
             }
         });
+        jblTienda.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 361, -1, -1));
 
-        btnDisminuirNachos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disminuir.png"))); // NOI18N
-        btnDisminuirNachos.setBorderPainted(false);
-        btnDisminuirNachos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnDisminuirNachos.setDisabledSelectedIcon(null);
-        btnDisminuirNachos.addActionListener(new java.awt.event.ActionListener() {
+        jblProductos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jblTienda.add(jblProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 180, 191));
+
+        cmbTienda.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cmbTienda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---------- Elija un producto ----------", "Policanguil", "Polinachos", "Polipapas", "Polibebidas", "Polipollo", "Polihotdog", "Polidulces", "Poliburguer" }));
+        cmbTienda.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        cmbTienda.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbTiendaItemStateChanged(evt);
+            }
+        });
+        jblTienda.add(cmbTienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 73, 243, -1));
+
+        txaPrecio.setEditable(false);
+        txaPrecio.setColumns(20);
+        txaPrecio.setRows(5);
+        jScrollPane1.setViewportView(txaPrecio);
+
+        jblTienda.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 114, 243, 232));
+
+        jblCantidad.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jblCantidad.setText("Cantidad :");
+        jblTienda.add(jblCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(378, 365, -1, -1));
+
+        txtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCantidadKeyTyped(evt);
+            }
+        });
+        jblTienda.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(462, 359, 38, 28));
+
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDisminuirNachosActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
+        jblTienda.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 361, -1, -1));
 
-        btnDisminuirPapas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disminuir.png"))); // NOI18N
-        btnDisminuirPapas.setBorderPainted(false);
-        btnDisminuirPapas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnDisminuirPapas.setDisabledSelectedIcon(null);
-        btnDisminuirPapas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDisminuirPapasActionPerformed(evt);
-            }
-        });
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/peliculas.jpg"))); // NOI18N
+        jblTienda.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 440));
 
-        btnDisminuirHotDog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disminuir.png"))); // NOI18N
-        btnDisminuirHotDog.setBorderPainted(false);
-        btnDisminuirHotDog.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnDisminuirHotDog.setDisabledSelectedIcon(null);
-        btnDisminuirHotDog.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDisminuirHotDogActionPerformed(evt);
-            }
-        });
+        jtbTienda.addTab("Tienda", jblTienda);
 
-        btnDisminuirKFC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disminuir.png"))); // NOI18N
-        btnDisminuirKFC.setBorderPainted(false);
-        btnDisminuirKFC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnDisminuirKFC.setDisabledSelectedIcon(null);
-        btnDisminuirKFC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDisminuirKFCActionPerformed(evt);
-            }
-        });
+        getContentPane().add(jtbTienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 570, 460));
 
-        btnDisminuirBebida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disminuir.png"))); // NOI18N
-        btnDisminuirBebida.setBorderPainted(false);
-        btnDisminuirBebida.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnDisminuirBebida.setDisabledSelectedIcon(null);
-        btnDisminuirBebida.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDisminuirBebidaActionPerformed(evt);
-            }
-        });
-
-        btnDisminuirDulces.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disminuir.png"))); // NOI18N
-        btnDisminuirDulces.setBorderPainted(false);
-        btnDisminuirDulces.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnDisminuirDulces.setDisabledSelectedIcon(null);
-        btnDisminuirDulces.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDisminuirDulcesActionPerformed(evt);
-            }
-        });
-
-        btnDisminuirBurguer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disminuir.png"))); // NOI18N
-        btnDisminuirBurguer.setBorderPainted(false);
-        btnDisminuirBurguer.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnDisminuirBurguer.setDisabledSelectedIcon(null);
-        btnDisminuirBurguer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDisminuirBurguerActionPerformed(evt);
-            }
-        });
-
-        btnAumentarCanguil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/anadir.png"))); // NOI18N
-        btnAumentarCanguil.setBorderPainted(false);
-        btnAumentarCanguil.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnAumentarCanguil.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAumentarCanguilActionPerformed(evt);
-            }
-        });
-
-        btnAumentarNachos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/anadir.png"))); // NOI18N
-        btnAumentarNachos.setBorderPainted(false);
-        btnAumentarNachos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnAumentarNachos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAumentarNachosActionPerformed(evt);
-            }
-        });
-
-        btnAumentarPapas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/anadir.png"))); // NOI18N
-        btnAumentarPapas.setBorderPainted(false);
-        btnAumentarPapas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnAumentarPapas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAumentarPapasActionPerformed(evt);
-            }
-        });
-
-        btnAumentarHot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/anadir.png"))); // NOI18N
-        btnAumentarHot.setBorderPainted(false);
-        btnAumentarHot.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnAumentarHot.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAumentarHotActionPerformed(evt);
-            }
-        });
-
-        btnAumentarKFC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/anadir.png"))); // NOI18N
-        btnAumentarKFC.setBorderPainted(false);
-        btnAumentarKFC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnAumentarKFC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAumentarKFCActionPerformed(evt);
-            }
-        });
-
-        btnAumentarBebida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/anadir.png"))); // NOI18N
-        btnAumentarBebida.setBorderPainted(false);
-        btnAumentarBebida.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnAumentarBebida.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAumentarBebidaActionPerformed(evt);
-            }
-        });
-
-        btnAumentarDulce.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/anadir.png"))); // NOI18N
-        btnAumentarDulce.setBorderPainted(false);
-        btnAumentarDulce.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnAumentarDulce.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAumentarDulceActionPerformed(evt);
-            }
-        });
-
-        btnAumentarBurguer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/anadir.png"))); // NOI18N
-        btnAumentarBurguer.setBorderPainted(false);
-        btnAumentarBurguer.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnAumentarBurguer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAumentarBurguerActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jblHotDogLayout = new javax.swing.GroupLayout(jblHotDog);
-        jblHotDog.setLayout(jblHotDogLayout);
-        jblHotDogLayout.setHorizontalGroup(
-            jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jblHotDogLayout.createSequentialGroup()
-                .addGap(232, 232, 232)
-                .addComponent(PoliSnacks)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jblHotDogLayout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(jLabel18)
-                .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jblHotDogLayout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(jLabel19))
-                    .addGroup(jblHotDogLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(btnDisminuirBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jblBebidas, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jblHotDogLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                        .addComponent(btnDisminuirDulces, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(118, 118, 118)
-                        .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel25)
-                            .addGroup(jblHotDogLayout.createSequentialGroup()
-                                .addComponent(btnDisminuirBurguer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jblPoliburguer, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnAumentarBurguer, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jblHotDogLayout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(jLabel20)
-                        .addGap(78, 78, 78)
-                        .addComponent(jLabel21)))
-                .addGap(29, 29, 29))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jblHotDogLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jblHotDogLayout.createSequentialGroup()
-                        .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jblHotDogLayout.createSequentialGroup()
-                                .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel22)
-                                    .addGroup(jblHotDogLayout.createSequentialGroup()
-                                        .addComponent(btnDisminuirKFC, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jblKFC, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnAumentarKFC, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(35, 35, 35))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jblHotDogLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(45, 45, 45))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jblHotDogLayout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(62, 62, 62))
-                    .addGroup(jblHotDogLayout.createSequentialGroup()
-                        .addComponent(btnDisminuirCanguil, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jblCanguil, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAumentarCanguil, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jblHotDogLayout.createSequentialGroup()
-                        .addComponent(btnDisminuirNachos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jblNachos, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnAumentarNachos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jblPapas, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel9)
-                        .addGap(44, 44, 44))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jblHotDogLayout.createSequentialGroup()
-                        .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jblHotDogLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jblHotDogLayout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jLabel11))
-                                    .addComponent(jLabel7)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jblHotDogLayout.createSequentialGroup()
-                                .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnAumentarBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(6, 6, 6))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jblHotDogLayout.createSequentialGroup()
-                                .addComponent(jLabel23)
-                                .addGap(40, 40, 40)))
-                        .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jblHotDogLayout.createSequentialGroup()
-                                .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnDisminuirPapas, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(48, 48, 48))
-                            .addGroup(jblHotDogLayout.createSequentialGroup()
-                                .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnAumentarPapas, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jblHotDogLayout.createSequentialGroup()
-                                            .addGap(40, 40, 40)
-                                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jblHotDogLayout.createSequentialGroup()
-                                            .addGap(64, 64, 64)
-                                            .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(jblHotDogLayout.createSequentialGroup()
-                                                    .addGap(10, 10, 10)
-                                                    .addComponent(jLabel12))
-                                                .addComponent(jLabel8))))
-                                    .addGroup(jblHotDogLayout.createSequentialGroup()
-                                        .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel24)
-                                            .addComponent(jblDulces, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnAumentarDulce, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(51, 51, 51)))
-                        .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jblHotDogLayout.createSequentialGroup()
-                                    .addComponent(btnDisminuirHotDog, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jblHotDoh)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnAumentarHot, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jblHotDogLayout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(jLabel13)))
-                        .addGap(28, 28, 28))))
-        );
-        jblHotDogLayout.setVerticalGroup(
-            jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jblHotDogLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(PoliSnacks)
-                .addGap(6, 6, 6)
-                .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jblHotDogLayout.createSequentialGroup()
-                        .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jblHotDogLayout.createSequentialGroup()
-                                .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel8)))
-                            .addGroup(jblHotDogLayout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel7)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel11)))
-                    .addGroup(jblHotDogLayout.createSequentialGroup()
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel10)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnDisminuirCanguil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jblNachos)
-                    .addComponent(btnDisminuirNachos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDisminuirPapas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAumentarCanguil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAumentarNachos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAumentarPapas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jblPapas)
-                        .addComponent(jblCanguil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jblHotDoh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDisminuirHotDog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAumentarHot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel18)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel21))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jblHotDogLayout.createSequentialGroup()
-                        .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel22)
-                            .addComponent(jLabel23))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jblHotDogLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jblKFC))
-                            .addGroup(jblHotDogLayout.createSequentialGroup()
-                                .addComponent(jblBebidas)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(btnDisminuirKFC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnDisminuirBebida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAumentarKFC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAumentarBebida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jblHotDogLayout.createSequentialGroup()
-                        .addComponent(jLabel25)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAumentarBurguer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jblHotDogLayout.createSequentialGroup()
-                                .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jblPoliburguer)
-                                    .addComponent(btnDisminuirBurguer))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jblHotDogLayout.createSequentialGroup()
-                        .addComponent(jLabel24)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jblHotDogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jblDulces, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnDisminuirDulces, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAumentarDulce, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(16, 16, 16))
-        );
-
-        jTabbedPane1.addTab("Tienda", jblHotDog);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cartelera.jpg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+    
+    
+    private void cmbGeneroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbGeneroItemStateChanged
         // TODO add your handling code here:
-        String genero = (String) jComboBox1.getSelectedItem();
+        String genero = (String) cmbGenero.getSelectedItem();
         switch (genero) {
             case "Acción":
                 try {
-                        URL url = this.getClass().getResource(accion[0]);
-                        Image img1 = ImageIO.read(url);
-                        jblV1.setIcon(new ImageIcon(img1));
-                        url = this.getClass().getResource(accion[1]);
-                        Image img2 = ImageIO.read(url);
-                        jblV2.setIcon(new ImageIcon(img2));
-                        url = this.getClass().getResource(accion[2]);
-                        Image img3 = ImageIO.read(url);
-                        jblV3.setIcon(new ImageIcon(img3));
-                        url = this.getClass().getResource(accion[3]);
-                        Image img4 = ImageIO.read(url);
-                        jblV4.setIcon(new ImageIcon(img4));
-                        url = this.getClass().getResource(accion[4]);
-                        Image img5 = ImageIO.read(url);
-                        jblV5.setIcon(new ImageIcon(img5));
-                        url = this.getClass().getResource(accion[5]);
-                        Image img6 = ImageIO.read(url);                                
-                        jblV6.setIcon(new ImageIcon(img6));
-                        url = this.getClass().getResource(accion[6]);
-                        Image img7 = ImageIO.read(url);                                
-                        jblV7.setIcon(new ImageIcon(img7));
-                        url = this.getClass().getResource(accion[7]);
-                        Image img8 = ImageIO.read(url);                                
-                        jblV8.setIcon(new ImageIcon(img8));
-                    } catch (Exception e) {
-                    }
+                    habilitarImagenes();
+                    URL url = this.getClass().getResource(accion[0]);
+                    Image img1 = ImageIO.read(url);
+                    jblV1.setIcon(new ImageIcon(img1));
+                    url = this.getClass().getResource(accion[1]);
+                    Image img2 = ImageIO.read(url);
+                    jblV2.setIcon(new ImageIcon(img2));
+                    url = this.getClass().getResource(accion[2]);
+                    Image img3 = ImageIO.read(url);
+                    jblV3.setIcon(new ImageIcon(img3));
+                    url = this.getClass().getResource(accion[3]);
+                    Image img4 = ImageIO.read(url);
+                    jblV4.setIcon(new ImageIcon(img4));
+                    url = this.getClass().getResource(accion[4]);
+                    Image img5 = ImageIO.read(url);
+                    jblV5.setIcon(new ImageIcon(img5));
+                    url = this.getClass().getResource(accion[5]);
+                    Image img6 = ImageIO.read(url);
+                    jblV6.setIcon(new ImageIcon(img6));
+                    url = this.getClass().getResource(accion[6]);
+                    Image img7 = ImageIO.read(url);
+                    jblV7.setIcon(new ImageIcon(img7));
+                    url = this.getClass().getResource(accion[7]);
+                    Image img8 = ImageIO.read(url);
+                    jblV8.setIcon(new ImageIcon(img8));
+                } catch (Exception e) {
+                }
                 break;
-            case "Drama": 
+            case "Drama":
                 try {
-                        URL url = this.getClass().getResource(drama[0]);
-                        Image img1 = ImageIO.read(url);
-                        jblV1.setIcon(new ImageIcon(img1));
-                        url = this.getClass().getResource(drama[1]);
-                        Image img2 = ImageIO.read(url);
-                        jblV2.setIcon(new ImageIcon(img2));
-                        url = this.getClass().getResource(drama[2]);
-                        Image img3 = ImageIO.read(url);
-                        jblV3.setIcon(new ImageIcon(img3));
-                        url = this.getClass().getResource(drama[3]);
-                        Image img4 = ImageIO.read(url);
-                        jblV4.setIcon(new ImageIcon(img4));
-                        url = this.getClass().getResource(drama[4]);
-                        Image img5 = ImageIO.read(url);
-                        jblV5.setIcon(new ImageIcon(img5));
-                        url = this.getClass().getResource(drama[5]);
-                        Image img6 = ImageIO.read(url);                                
-                        jblV6.setIcon(new ImageIcon(img6));
-                        url = this.getClass().getResource(drama[6]);
-                        Image img7 = ImageIO.read(url);                                
-                        jblV7.setIcon(new ImageIcon(img7));
-                        url = this.getClass().getResource(drama[7]);
-                        Image img8 = ImageIO.read(url);                                
-                        jblV8.setIcon(new ImageIcon(img8));
-                    } catch (Exception e) {
-                    }
+                    habilitarImagenes();
+                    URL url = this.getClass().getResource(drama[0]);
+                    Image img1 = ImageIO.read(url);
+                    jblV1.setIcon(new ImageIcon(img1));
+                    url = this.getClass().getResource(drama[1]);
+                    Image img2 = ImageIO.read(url);
+                    jblV2.setIcon(new ImageIcon(img2));
+                    url = this.getClass().getResource(drama[2]);
+                    Image img3 = ImageIO.read(url);
+                    jblV3.setIcon(new ImageIcon(img3));
+                    url = this.getClass().getResource(drama[3]);
+                    Image img4 = ImageIO.read(url);
+                    jblV4.setIcon(new ImageIcon(img4));
+                    url = this.getClass().getResource(drama[4]);
+                    Image img5 = ImageIO.read(url);
+                    jblV5.setIcon(new ImageIcon(img5));
+                    url = this.getClass().getResource(drama[5]);
+                    Image img6 = ImageIO.read(url);
+                    jblV6.setIcon(new ImageIcon(img6));
+                    url = this.getClass().getResource(drama[6]);
+                    Image img7 = ImageIO.read(url);
+                    jblV7.setIcon(new ImageIcon(img7));
+                    url = this.getClass().getResource(drama[7]);
+                    Image img8 = ImageIO.read(url);
+                    jblV8.setIcon(new ImageIcon(img8));
+                } catch (Exception e) {
+                }
                 break;
-                //Llenamos nuestro arreglo que creamos
             case "Terror":
                 try {
-                        URL url = this.getClass().getResource(terror[0]);
-                        Image img1 = ImageIO.read(url);
-                        jblV1.setIcon(new ImageIcon(img1));
-                        url = this.getClass().getResource(terror[1]);
-                        Image img2 = ImageIO.read(url);
-                        jblV2.setIcon(new ImageIcon(img2));
-                        url = this.getClass().getResource(terror[2]);
-                        Image img3 = ImageIO.read(url);
-                        jblV3.setIcon(new ImageIcon(img3));
-                        url = this.getClass().getResource(terror[3]);
-                        Image img4 = ImageIO.read(url);
-                        jblV4.setIcon(new ImageIcon(img4));
-                        url = this.getClass().getResource(terror[4]);
-                        Image img5 = ImageIO.read(url);
-                        jblV5.setIcon(new ImageIcon(img5));
-                        url = this.getClass().getResource(terror[5]);
-                        Image img6 = ImageIO.read(url);                                
-                        jblV6.setIcon(new ImageIcon(img6));
-                        url = this.getClass().getResource(terror[6]);
-                        Image img7 = ImageIO.read(url);                                
-                        jblV7.setIcon(new ImageIcon(img7));
-                        url = this.getClass().getResource(terror[7]);
-                        Image img8 = ImageIO.read(url);                                
-                        jblV8.setIcon(new ImageIcon(img8));
-                    } catch (Exception e) {
-                    }
+                    habilitarImagenes();
+                    URL url = this.getClass().getResource(terror[0]);
+                    Image img1 = ImageIO.read(url);
+                    jblV1.setIcon(new ImageIcon(img1));
+                    url = this.getClass().getResource(terror[1]);
+                    Image img2 = ImageIO.read(url);
+                    jblV2.setIcon(new ImageIcon(img2));
+                    url = this.getClass().getResource(terror[2]);
+                    Image img3 = ImageIO.read(url);
+                    jblV3.setIcon(new ImageIcon(img3));
+                    url = this.getClass().getResource(terror[3]);
+                    Image img4 = ImageIO.read(url);
+                    jblV4.setIcon(new ImageIcon(img4));
+                    url = this.getClass().getResource(terror[4]);
+                    Image img5 = ImageIO.read(url);
+                    jblV5.setIcon(new ImageIcon(img5));
+                    url = this.getClass().getResource(terror[5]);
+                    Image img6 = ImageIO.read(url);
+                    jblV6.setIcon(new ImageIcon(img6));
+                    url = this.getClass().getResource(terror[6]);
+                    Image img7 = ImageIO.read(url);
+                    jblV7.setIcon(new ImageIcon(img7));
+                    url = this.getClass().getResource(terror[7]);
+                    Image img8 = ImageIO.read(url);
+                    jblV8.setIcon(new ImageIcon(img8));
+                } catch (Exception e) {
+                }
                 break;
             case "Suspenso":
                 try {
-                        URL url = this.getClass().getResource(suspenso[0]);
-                        Image img1 = ImageIO.read(url);
-                        jblV1.setIcon(new ImageIcon(img1));
-                        url = this.getClass().getResource(suspenso[1]);
-                        Image img2 = ImageIO.read(url);
-                        jblV2.setIcon(new ImageIcon(img2));
-                        url = this.getClass().getResource(suspenso[2]);
-                        Image img3 = ImageIO.read(url);
-                        jblV3.setIcon(new ImageIcon(img3));
-                        url = this.getClass().getResource(suspenso[3]);
-                        Image img4 = ImageIO.read(url);
-                        jblV4.setIcon(new ImageIcon(img4));
-                        url = this.getClass().getResource(suspenso[4]);
-                        Image img5 = ImageIO.read(url);
-                        jblV5.setIcon(new ImageIcon(img5));
-                        url = this.getClass().getResource(suspenso[5]);
-                        Image img6 = ImageIO.read(url);                                
-                        jblV6.setIcon(new ImageIcon(img6));
-                        url = this.getClass().getResource(suspenso[6]);
-                        Image img7 = ImageIO.read(url);                                
-                        jblV7.setIcon(new ImageIcon(img7));
-                        url = this.getClass().getResource(suspenso[7]);
-                        Image img8 = ImageIO.read(url);                                
-                        jblV8.setIcon(new ImageIcon(img8));
-                    } catch (Exception e) {
-                    }
+                    habilitarImagenes();
+                    URL url = this.getClass().getResource(suspenso[0]);
+                    Image img1 = ImageIO.read(url);
+                    jblV1.setIcon(new ImageIcon(img1));
+                    url = this.getClass().getResource(suspenso[1]);
+                    Image img2 = ImageIO.read(url);
+                    jblV2.setIcon(new ImageIcon(img2));
+                    url = this.getClass().getResource(suspenso[2]);
+                    Image img3 = ImageIO.read(url);
+                    jblV3.setIcon(new ImageIcon(img3));
+                    url = this.getClass().getResource(suspenso[3]);
+                    Image img4 = ImageIO.read(url);
+                    jblV4.setIcon(new ImageIcon(img4));
+                    url = this.getClass().getResource(suspenso[4]);
+                    Image img5 = ImageIO.read(url);
+                    jblV5.setIcon(new ImageIcon(img5));
+                    url = this.getClass().getResource(suspenso[5]);
+                    Image img6 = ImageIO.read(url);
+                    jblV6.setIcon(new ImageIcon(img6));
+                    url = this.getClass().getResource(suspenso[6]);
+                    Image img7 = ImageIO.read(url);
+                    jblV7.setIcon(new ImageIcon(img7));
+                    url = this.getClass().getResource(suspenso[7]);
+                    Image img8 = ImageIO.read(url);
+                    jblV8.setIcon(new ImageIcon(img8));
+                } catch (Exception e) {
+                }
                 break;
             case "Aventura":
                 try {
-                        URL url = this.getClass().getResource(aventura[0]);
-                        Image img1 = ImageIO.read(url);
-                        jblV1.setIcon(new ImageIcon(img1));
-                        url = this.getClass().getResource(aventura[1]);
-                        Image img2 = ImageIO.read(url);
-                        jblV2.setIcon(new ImageIcon(img2));
-                        url = this.getClass().getResource(aventura[2]);
-                        Image img3 = ImageIO.read(url);
-                        jblV3.setIcon(new ImageIcon(img3));
-                        url = this.getClass().getResource(aventura[3]);
-                        Image img4 = ImageIO.read(url);
-                        jblV4.setIcon(new ImageIcon(img4));
-                        url = this.getClass().getResource(aventura[4]);
-                        Image img5 = ImageIO.read(url);
-                        jblV5.setIcon(new ImageIcon(img5));
-                        url = this.getClass().getResource(aventura[5]);
-                        Image img6 = ImageIO.read(url);                                
-                        jblV6.setIcon(new ImageIcon(img6));
-                        url = this.getClass().getResource(aventura[6]);
-                        Image img7 = ImageIO.read(url);                                
-                        jblV7.setIcon(new ImageIcon(img7));
-                        url = this.getClass().getResource(aventura[7]);
-                        Image img8 = ImageIO.read(url);                                
-                        jblV8.setIcon(new ImageIcon(img8));
-                    } catch (Exception e) {
-                    }
-                break;   
+                    habilitarImagenes();
+                    URL url = this.getClass().getResource(aventura[0]);
+                    Image img1 = ImageIO.read(url);
+                    jblV1.setIcon(new ImageIcon(img1));
+                    url = this.getClass().getResource(aventura[1]);
+                    Image img2 = ImageIO.read(url);
+                    jblV2.setIcon(new ImageIcon(img2));
+                    url = this.getClass().getResource(aventura[2]);
+                    Image img3 = ImageIO.read(url);
+                    jblV3.setIcon(new ImageIcon(img3));
+                    url = this.getClass().getResource(aventura[3]);
+                    Image img4 = ImageIO.read(url);
+                    jblV4.setIcon(new ImageIcon(img4));
+                    url = this.getClass().getResource(aventura[4]);
+                    Image img5 = ImageIO.read(url);
+                    jblV5.setIcon(new ImageIcon(img5));
+                    url = this.getClass().getResource(aventura[5]);
+                    Image img6 = ImageIO.read(url);
+                    jblV6.setIcon(new ImageIcon(img6));
+                    url = this.getClass().getResource(aventura[6]);
+                    Image img7 = ImageIO.read(url);
+                    jblV7.setIcon(new ImageIcon(img7));
+                    url = this.getClass().getResource(aventura[7]);
+                    Image img8 = ImageIO.read(url);
+                    jblV8.setIcon(new ImageIcon(img8));
+                } catch (Exception e) {
+                }
+                break;
             case "Ciencia Ficción":
                 try {
-                        URL url = this.getClass().getResource(ciencia[0]);
-                        Image img1 = ImageIO.read(url);
-                        jblV1.setIcon(new ImageIcon(img1));
-                        url = this.getClass().getResource(ciencia[1]);
-                        Image img2 = ImageIO.read(url);
-                        jblV2.setIcon(new ImageIcon(img2));
-                        url = this.getClass().getResource(ciencia[2]);
-                        Image img3 = ImageIO.read(url);
-                        jblV3.setIcon(new ImageIcon(img3));
-                        url = this.getClass().getResource(ciencia[3]);
-                        Image img4 = ImageIO.read(url);
-                        jblV4.setIcon(new ImageIcon(img4));
-                        url = this.getClass().getResource(ciencia[4]);
-                        Image img5 = ImageIO.read(url);
-                        jblV5.setIcon(new ImageIcon(img5));
-                        url = this.getClass().getResource(ciencia[5]);
-                        Image img6 = ImageIO.read(url);                                
-                        jblV6.setIcon(new ImageIcon(img6));
-                        url = this.getClass().getResource(ciencia[6]);
-                        Image img7 = ImageIO.read(url);                                
-                        jblV7.setIcon(new ImageIcon(img7));
-                        url = this.getClass().getResource(ciencia[7]);
-                        Image img8 = ImageIO.read(url);                                
-                        jblV8.setIcon(new ImageIcon(img8));
-                    } catch (Exception e) {
-                    }
+                    habilitarImagenes();
+                    URL url = this.getClass().getResource(ciencia[0]);
+                    Image img1 = ImageIO.read(url);
+                    jblV1.setIcon(new ImageIcon(img1));
+                    url = this.getClass().getResource(ciencia[1]);
+                    Image img2 = ImageIO.read(url);
+                    jblV2.setIcon(new ImageIcon(img2));
+                    url = this.getClass().getResource(ciencia[2]);
+                    Image img3 = ImageIO.read(url);
+                    jblV3.setIcon(new ImageIcon(img3));
+                    url = this.getClass().getResource(ciencia[3]);
+                    Image img4 = ImageIO.read(url);
+                    jblV4.setIcon(new ImageIcon(img4));
+                    url = this.getClass().getResource(ciencia[4]);
+                    Image img5 = ImageIO.read(url);
+                    jblV5.setIcon(new ImageIcon(img5));
+                    url = this.getClass().getResource(ciencia[5]);
+                    Image img6 = ImageIO.read(url);
+                    jblV6.setIcon(new ImageIcon(img6));
+                    url = this.getClass().getResource(ciencia[6]);
+                    Image img7 = ImageIO.read(url);
+                    jblV7.setIcon(new ImageIcon(img7));
+                    url = this.getClass().getResource(ciencia[7]);
+                    Image img8 = ImageIO.read(url);
+                    jblV8.setIcon(new ImageIcon(img8));
+                } catch (Exception e) {
+                }
                 break;
             case "Musical":
                 try {
-                        URL url = this.getClass().getResource(musical[0]);
-                        Image img1 = ImageIO.read(url);
-                        jblV1.setIcon(new ImageIcon(img1));
-                        url = this.getClass().getResource(musical[1]);
-                        Image img2 = ImageIO.read(url);
-                        jblV2.setIcon(new ImageIcon(img2));
-                        url = this.getClass().getResource(musical[2]);
-                        Image img3 = ImageIO.read(url);
-                        jblV3.setIcon(new ImageIcon(img3));
-                        url = this.getClass().getResource(musical[3]);
-                        Image img4 = ImageIO.read(url);
-                        jblV4.setIcon(new ImageIcon(img4));
-                        url = this.getClass().getResource(musical[4]);
-                        Image img5 = ImageIO.read(url);
-                        jblV5.setIcon(new ImageIcon(img5));
-                        url = this.getClass().getResource(musical[5]);
-                        Image img6 = ImageIO.read(url);                                
-                        jblV6.setIcon(new ImageIcon(img6));
-                        url = this.getClass().getResource(musical[6]);
-                        Image img7 = ImageIO.read(url);                                
-                        jblV7.setIcon(new ImageIcon(img7));
-                        url = this.getClass().getResource(musical[7]);
-                        Image img8 = ImageIO.read(url);                                
-                        jblV8.setIcon(new ImageIcon(img8));
-                    } catch (Exception e) {
-                    }
+                    habilitarImagenes();
+                    URL url = this.getClass().getResource(musical[0]);
+                    Image img1 = ImageIO.read(url);
+                    jblV1.setIcon(new ImageIcon(img1));
+                    url = this.getClass().getResource(musical[1]);
+                    Image img2 = ImageIO.read(url);
+                    jblV2.setIcon(new ImageIcon(img2));
+                    url = this.getClass().getResource(musical[2]);
+                    Image img3 = ImageIO.read(url);
+                    jblV3.setIcon(new ImageIcon(img3));
+                    url = this.getClass().getResource(musical[3]);
+                    Image img4 = ImageIO.read(url);
+                    jblV4.setIcon(new ImageIcon(img4));
+                    url = this.getClass().getResource(musical[4]);
+                    Image img5 = ImageIO.read(url);
+                    jblV5.setIcon(new ImageIcon(img5));
+                    url = this.getClass().getResource(musical[5]);
+                    Image img6 = ImageIO.read(url);
+                    jblV6.setIcon(new ImageIcon(img6));
+                    url = this.getClass().getResource(musical[6]);
+                    Image img7 = ImageIO.read(url);
+                    jblV7.setIcon(new ImageIcon(img7));
+                    url = this.getClass().getResource(musical[7]);
+                    Image img8 = ImageIO.read(url);
+                    jblV8.setIcon(new ImageIcon(img8));
+                } catch (Exception e) {
+                }
                 break;
             case "Infantil":
                 try {
-                        URL url = this.getClass().getResource(infantil[0]);
-                        Image img1 = ImageIO.read(url);
-                        jblV1.setIcon(new ImageIcon(img1));
-                        url = this.getClass().getResource(infantil[1]);
-                        Image img2 = ImageIO.read(url);
-                        jblV2.setIcon(new ImageIcon(img2));
-                        url = this.getClass().getResource(infantil[2]);
+                    habilitarImagenes();
+                    URL url = this.getClass().getResource(infantil[0]);
+                    Image img1 = ImageIO.read(url);
+                    jblV1.setIcon(new ImageIcon(img1));
+                    url = this.getClass().getResource(infantil[1]);
+                    Image img2 = ImageIO.read(url);
+                    jblV2.setIcon(new ImageIcon(img2));
+                    url = this.getClass().getResource(infantil[2]);
+                    Image img3 = ImageIO.read(url);
+                    jblV3.setIcon(new ImageIcon(img3));
+                    url = this.getClass().getResource(infantil[3]);
+                    Image img4 = ImageIO.read(url);
+                    jblV4.setIcon(new ImageIcon(img4));
+                    url = this.getClass().getResource(infantil[4]);
+                    Image img5 = ImageIO.read(url);
+                    jblV5.setIcon(new ImageIcon(img5));
+                    url = this.getClass().getResource(infantil[5]);
+                    Image img6 = ImageIO.read(url);
+                    jblV6.setIcon(new ImageIcon(img6));
+                    url = this.getClass().getResource(infantil[6]);
+                    Image img7 = ImageIO.read(url);
+                    jblV7.setIcon(new ImageIcon(img7));
+                    url = this.getClass().getResource(infantil[7]);
+                    Image img8 = ImageIO.read(url);
+                    jblV8.setIcon(new ImageIcon(img8));
+                } catch (Exception e) {
+                }
+                break;
+
+        }
+    }//GEN-LAST:event_cmbGeneroItemStateChanged
+
+    private void jblV1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jblV1MouseClicked
+        // TODO add your handling code here:
+        GUI_Sala sala = new GUI_Sala();
+        sala.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jblV1MouseClicked
+
+    private void jblV2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jblV2MouseClicked
+        // TODO add your handling code here:
+        GUI_Sala sala = new GUI_Sala();
+        sala.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jblV2MouseClicked
+
+    private void jblV3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jblV3MouseClicked
+        // TODO add your handling code here:
+        GUI_Sala sala = new GUI_Sala();
+        sala.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jblV3MouseClicked
+
+    private void jblV4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jblV4MouseClicked
+        // TODO add your handling code here:
+        GUI_Sala sala = new GUI_Sala();
+        sala.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jblV4MouseClicked
+
+    private void jblV5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jblV5MouseClicked
+        // TODO add your handling code here:
+        GUI_Sala sala = new GUI_Sala();
+        sala.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jblV5MouseClicked
+
+    private void jblV6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jblV6MouseClicked
+        // TODO add your handling code here:
+        GUI_Sala sala = new GUI_Sala();
+        sala.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jblV6MouseClicked
+
+    private void jblV7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jblV7MouseClicked
+        // TODO add your handling code here:
+        GUI_Sala sala = new GUI_Sala();
+        sala.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jblV7MouseClicked
+
+    private void jblV8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jblV8MouseClicked
+        // TODO add your handling code here:
+        GUI_Sala sala = new GUI_Sala();
+        sala.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jblV8MouseClicked
+
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        // TODO add your handling code here:
+        GUI_Usuario usuario = new GUI_Usuario();
+        usuario.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnIngresarActionPerformed
+
+    private void cmbTiendaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbTiendaItemStateChanged
+        // TODO add your handling code here:
+        String opcion = (String) cmbTienda.getSelectedItem();
+        URL url;
+        switch (opcion) {
+            case "Policanguil":
+                try {
+                    url = this.getClass().getResource(productosTienda[0]);
+                    Image img1 = ImageIO.read(url);
+                    jblProductos.setIcon(new ImageIcon(img1));
+                } catch (Exception e) {
+                }
+                break;
+            case "Polinachos":
+                try {
+                    url = this.getClass().getResource(productosTienda[1]);
+                    Image img2 = ImageIO.read(url);
+                    jblProductos.setIcon(new ImageIcon(img2));
+                } catch (Exception e) {
+                }
+                break;
+            case "Polipapas":
+                try {
+                        url = this.getClass().getResource(productosTienda[2]);
                         Image img3 = ImageIO.read(url);
-                        jblV3.setIcon(new ImageIcon(img3));
-                        url = this.getClass().getResource(infantil[3]);
+                        jblProductos.setIcon(new ImageIcon(img3));                        
+                    } catch (Exception e) {
+                    }
+                break;
+            case "Polibebidas":
+                try {
+                        url = this.getClass().getResource(productosTienda[3]);
                         Image img4 = ImageIO.read(url);
-                        jblV4.setIcon(new ImageIcon(img4));
-                        url = this.getClass().getResource(infantil[4]);
+                        jblProductos.setIcon(new ImageIcon(img4));                       
+                    } catch (Exception e) {
+                    }
+                break;
+            case "Polipollo":
+                try {
+                        url = this.getClass().getResource(productosTienda[4]);
                         Image img5 = ImageIO.read(url);
-                        jblV5.setIcon(new ImageIcon(img5));
-                        url = this.getClass().getResource(infantil[5]);
-                        Image img6 = ImageIO.read(url);                                
-                        jblV6.setIcon(new ImageIcon(img6));
-                        url = this.getClass().getResource(infantil[6]);
-                        Image img7 = ImageIO.read(url);                                
-                        jblV7.setIcon(new ImageIcon(img7));
-                        url = this.getClass().getResource(infantil[7]);
-                        Image img8 = ImageIO.read(url);                                
-                        jblV8.setIcon(new ImageIcon(img8));
+                        jblProductos.setIcon(new ImageIcon(img5));
+                        
+                    } catch (Exception e) {
+                    }
+                break;
+            case "Polihotdog":
+                try {
+                        url = this.getClass().getResource(productosTienda[5]);
+                        Image img6 = ImageIO.read(url);
+                        jblProductos.setIcon(new ImageIcon(img6));
+                        
+                    } catch (Exception e) {
+                    }
+                break;
+            case "Polidulces":
+                try {
+                        url = this.getClass().getResource(productosTienda[6]);
+                        Image img7 = ImageIO.read(url);
+                        jblProductos.setIcon(new ImageIcon(img7));
+                        
+                    } catch (Exception e) {
+                    }
+                break;
+            case "Poliburguer":
+                try {
+                        url = this.getClass().getResource(productosTienda[7]);
+                        Image img8 = ImageIO.read(url);
+                        jblProductos.setIcon(new ImageIcon(img8));
+                       
                     } catch (Exception e) {
                     }
                 break;
         }
-    }//GEN-LAST:event_jComboBox1ItemStateChanged
+    }//GEN-LAST:event_cmbTiendaItemStateChanged
 
-    private void btnAumentarHotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAumentarHotActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        jblHotDoh.setText(String.valueOf(aumentar()));
-    }//GEN-LAST:event_btnAumentarHotActionPerformed
+        if (txtCantidad.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Elija un producto");
+        } else {            
+            String inicio = "  \n======== 🦉 POLICINE 🦉 ========\n"
+                    + "Unidades     Descripcion    PvP    Total";
+            tipoSnack = (String) cmbTienda.getSelectedItem();
+            
+            switch (tipoSnack) {
+                case "Policanguil":
+                    precioSnack = 3.50;
+                    break;
+                case "Polinachos":
+                    precioSnack = 4.00;
+                    break;
+                case "Polipapas":
+                    precioSnack = 2.50;
+                    break;
+                case "Polibebidas":
+                    precioSnack = 3.00;
+                    break;
+                case "Polipollo":
+                    precioSnack = 4.50;
+                    break;
+                case "Polihotdog":
+                    precioSnack = 1.50;
+                    break;
+                case "Polidulces":
+                    precioSnack = 2.50;
+                    break;
+                case "Poliburguer":
+                    precioSnack = 2.00;
+                    break;
+            }
+            unidadesProducto = Integer.parseInt(txtCantidad.getText());
+            totalAPagar = calcularTotal(unidadesProducto, precioSnack);
+            Snacks s = new Snacks(unidadesProducto, tipoSnack, precioSnack, totalAPagar);                                                  
+            txaPrecio.setText(txaPrecio.getText() + inicio + s.toString());
+            limpiarGUI();
+            
+            int aumentarProductos = JOptionPane.showConfirmDialog(rootPane, "¿Desea seguir comprando?", "Mensaje", JOptionPane.YES_NO_OPTION);
+            if (aumentarProductos == 0) {
+            } else {
+                btnIngresar.setEnabled(true);
+                btnGuardar.setEnabled(false);
+                txtCantidad.setEnabled(false);
+            }
 
-    private void btnAumentarKFCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAumentarKFCActionPerformed
+        }
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void txtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadKeyTyped
         // TODO add your handling code here:
-        jblKFC.setText(String.valueOf(aumentar()));
-    }//GEN-LAST:event_btnAumentarKFCActionPerformed
+        char validacion1 = evt.getKeyChar();
+        if (Character.isLetter(validacion1)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Solo se permiten Numeros");
+        }
+    }//GEN-LAST:event_txtCantidadKeyTyped
+ 
+    public double calcularTotal(int unidades, double precio) {
 
-    private void btnAumentarBebidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAumentarBebidaActionPerformed
-        // TODO add your handling code here:
-        jblBebidas.setText(String.valueOf(aumentar()));
-    }//GEN-LAST:event_btnAumentarBebidaActionPerformed
+        double total = unidades * precio;
 
-    private void btnAumentarDulceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAumentarDulceActionPerformed
-        // TODO add your handling code here:
-        jblDulces.setText(String.valueOf(aumentar()));
-    }//GEN-LAST:event_btnAumentarDulceActionPerformed
-
-    private void btnAumentarBurguerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAumentarBurguerActionPerformed
-        // TODO add your handling code here:
-        jblPoliburguer.setText(String.valueOf(aumentar()));
-    }//GEN-LAST:event_btnAumentarBurguerActionPerformed
-
-    private void btnAumentarCanguilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAumentarCanguilActionPerformed
-        // TODO add your handling code here:        
-        jblCanguil.setText(String.valueOf(aumentar()));                
-    }//GEN-LAST:event_btnAumentarCanguilActionPerformed
-
-    private void btnDisminuirCanguilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisminuirCanguilActionPerformed
-        // TODO add your handling code here:
-        jblCanguil.setText(String.valueOf(disminuir()));
-    }//GEN-LAST:event_btnDisminuirCanguilActionPerformed
-
-    private void btnAumentarNachosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAumentarNachosActionPerformed
-        // TODO add your handling code here:
-        jblNachos.setText(String.valueOf(aumentar()));
-    }//GEN-LAST:event_btnAumentarNachosActionPerformed
-
-    private void btnDisminuirNachosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisminuirNachosActionPerformed
-        // TODO add your handling code here:
-        jblNachos.setText(String.valueOf(disminuir()));
-    }//GEN-LAST:event_btnDisminuirNachosActionPerformed
-
-    private void btnAumentarPapasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAumentarPapasActionPerformed
-        // TODO add your handling code here:
-        jblPapas.setText(String.valueOf(aumentar()));
-    }//GEN-LAST:event_btnAumentarPapasActionPerformed
-
-    private void btnDisminuirPapasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisminuirPapasActionPerformed
-        // TODO add your handling code here:
-        jblPapas.setText(String.valueOf(disminuir()));
-    }//GEN-LAST:event_btnDisminuirPapasActionPerformed
-
-    private void btnDisminuirHotDogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisminuirHotDogActionPerformed
-        // TODO add your handling code here:
-        jblHotDoh.setText(String.valueOf(disminuir()));
-    }//GEN-LAST:event_btnDisminuirHotDogActionPerformed
-
-    private void btnDisminuirKFCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisminuirKFCActionPerformed
-        // TODO add your handling code here:
-        jblKFC.setText(String.valueOf(disminuir()));
-    }//GEN-LAST:event_btnDisminuirKFCActionPerformed
-
-    private void btnDisminuirBebidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisminuirBebidaActionPerformed
-        // TODO add your handling code here:
-        jblBebidas.setText(String.valueOf(disminuir()));
-    }//GEN-LAST:event_btnDisminuirBebidaActionPerformed
-
-    private void btnDisminuirDulcesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisminuirDulcesActionPerformed
-        // TODO add your handling code here:
-        jblDulces.setText(String.valueOf(disminuir()));
-    }//GEN-LAST:event_btnDisminuirDulcesActionPerformed
-
-    private void btnDisminuirBurguerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisminuirBurguerActionPerformed
-        // TODO add your handling code here:
-        jblPoliburguer.setText(String.valueOf(disminuir()));
-    }//GEN-LAST:event_btnDisminuirBurguerActionPerformed
-
+        return total;
+    }
     /**
      * @param args the command line arguments
      */
@@ -1015,6 +744,13 @@ public class GUI_Main extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(GUI_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1025,60 +761,20 @@ public class GUI_Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel PoliSnacks;
-    private javax.swing.JButton btnAumentarBebida;
-    private javax.swing.JButton btnAumentarBurguer;
-    private javax.swing.JButton btnAumentarCanguil;
-    private javax.swing.JButton btnAumentarDulce;
-    private javax.swing.JButton btnAumentarHot;
-    private javax.swing.JButton btnAumentarKFC;
-    private javax.swing.JButton btnAumentarNachos;
-    private javax.swing.JButton btnAumentarPapas;
-    private javax.swing.JButton btnDisminuirBebida;
-    private javax.swing.JButton btnDisminuirBurguer;
-    private javax.swing.JButton btnDisminuirCanguil;
-    private javax.swing.JButton btnDisminuirDulces;
-    private javax.swing.JButton btnDisminuirHotDog;
-    private javax.swing.JButton btnDisminuirKFC;
-    private javax.swing.JButton btnDisminuirNachos;
-    private javax.swing.JButton btnDisminuirPapas;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnIngresar;
+    public javax.swing.JComboBox<String> cmbGenero;
+    private javax.swing.JComboBox<String> cmbTienda;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JLabel jblBebidas;
-    private javax.swing.JLabel jblCanguil;
-    private javax.swing.JLabel jblDulces;
-    private javax.swing.JPanel jblHotDog;
-    private javax.swing.JLabel jblHotDoh;
-    private javax.swing.JLabel jblKFC;
-    private javax.swing.JLabel jblNachos;
-    private javax.swing.JLabel jblPapas;
-    private javax.swing.JLabel jblPoliburguer;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jblCantidad;
+    private javax.swing.JLabel jblGenero;
+    private javax.swing.JPanel jblInicio;
+    private javax.swing.JLabel jblPoliSnacks;
+    private javax.swing.JLabel jblProductos;
+    private javax.swing.JPanel jblTienda;
     private javax.swing.JLabel jblV1;
     public javax.swing.JLabel jblV2;
     private javax.swing.JLabel jblV3;
@@ -1087,5 +783,8 @@ public class GUI_Main extends javax.swing.JFrame {
     private javax.swing.JLabel jblV6;
     private javax.swing.JLabel jblV7;
     private javax.swing.JLabel jblV8;
+    public javax.swing.JTabbedPane jtbTienda;
+    private javax.swing.JTextArea txaPrecio;
+    private javax.swing.JTextField txtCantidad;
     // End of variables declaration//GEN-END:variables
 }
