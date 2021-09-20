@@ -54,6 +54,7 @@ public class GUI_Main extends javax.swing.JFrame {
         txtCantidad.setText("");
         cmbTienda.setSelectedIndex(0);
         jblProductos.setIcon(null);
+        jblPrecio.setText(null);
     }
  
     public void habilitarImagenes(){
@@ -99,7 +100,9 @@ public class GUI_Main extends javax.swing.JFrame {
         jblCantidad = new javax.swing.JLabel();
         txtCantidad = new javax.swing.JTextField();
         btnGuardar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jblPrecio = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -249,8 +252,13 @@ public class GUI_Main extends javax.swing.JFrame {
         });
         jblTienda.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 361, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/peliculas.jpg"))); // NOI18N
-        jblTienda.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 440));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setText("Precio:");
+        jblTienda.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, -1, -1));
+        jblTienda.add(jblPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, 40, 20));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/peliculas.jpg"))); // NOI18N
+        jblTienda.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 570, 460));
 
         jtbTienda.addTab("Tienda", jblTienda);
 
@@ -584,6 +592,7 @@ public class GUI_Main extends javax.swing.JFrame {
                     url = this.getClass().getResource(productosTienda[0]);
                     Image img1 = ImageIO.read(url);
                     jblProductos.setIcon(new ImageIcon(img1));
+                    jblPrecio.setText("$3,50");
                 } catch (Exception e) {
                 }
                 break;
@@ -592,6 +601,7 @@ public class GUI_Main extends javax.swing.JFrame {
                     url = this.getClass().getResource(productosTienda[1]);
                     Image img2 = ImageIO.read(url);
                     jblProductos.setIcon(new ImageIcon(img2));
+                    jblPrecio.setText("$4,00");
                 } catch (Exception e) {
                 }
                 break;
@@ -599,7 +609,8 @@ public class GUI_Main extends javax.swing.JFrame {
                 try {
                         url = this.getClass().getResource(productosTienda[2]);
                         Image img3 = ImageIO.read(url);
-                        jblProductos.setIcon(new ImageIcon(img3));                        
+                        jblProductos.setIcon(new ImageIcon(img3));   
+                        jblPrecio.setText("$2,50");
                     } catch (Exception e) {
                     }
                 break;
@@ -607,7 +618,8 @@ public class GUI_Main extends javax.swing.JFrame {
                 try {
                         url = this.getClass().getResource(productosTienda[3]);
                         Image img4 = ImageIO.read(url);
-                        jblProductos.setIcon(new ImageIcon(img4));                       
+                        jblProductos.setIcon(new ImageIcon(img4));          
+                        jblPrecio.setText("$3,00");
                     } catch (Exception e) {
                     }
                 break;
@@ -616,7 +628,7 @@ public class GUI_Main extends javax.swing.JFrame {
                         url = this.getClass().getResource(productosTienda[4]);
                         Image img5 = ImageIO.read(url);
                         jblProductos.setIcon(new ImageIcon(img5));
-                        
+                        jblPrecio.setText("$4,50");
                     } catch (Exception e) {
                     }
                 break;
@@ -625,7 +637,7 @@ public class GUI_Main extends javax.swing.JFrame {
                         url = this.getClass().getResource(productosTienda[5]);
                         Image img6 = ImageIO.read(url);
                         jblProductos.setIcon(new ImageIcon(img6));
-                        
+                        jblPrecio.setText("$1,50");
                     } catch (Exception e) {
                     }
                 break;
@@ -634,7 +646,7 @@ public class GUI_Main extends javax.swing.JFrame {
                         url = this.getClass().getResource(productosTienda[6]);
                         Image img7 = ImageIO.read(url);
                         jblProductos.setIcon(new ImageIcon(img7));
-                        
+                        jblPrecio.setText("$2,50");
                     } catch (Exception e) {
                     }
                 break;
@@ -643,7 +655,7 @@ public class GUI_Main extends javax.swing.JFrame {
                         url = this.getClass().getResource(productosTienda[7]);
                         Image img8 = ImageIO.read(url);
                         jblProductos.setIcon(new ImageIcon(img8));
-                       
+                       jblPrecio.setText("$2,00");
                     } catch (Exception e) {
                     }
                 break;
@@ -765,14 +777,16 @@ public class GUI_Main extends javax.swing.JFrame {
     private javax.swing.JButton btnIngresar;
     public javax.swing.JComboBox<String> cmbGenero;
     private javax.swing.JComboBox<String> cmbTienda;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jblCantidad;
     private javax.swing.JLabel jblGenero;
     private javax.swing.JPanel jblInicio;
     private javax.swing.JLabel jblPoliSnacks;
+    private javax.swing.JLabel jblPrecio;
     private javax.swing.JLabel jblProductos;
     private javax.swing.JPanel jblTienda;
     private javax.swing.JLabel jblV1;
